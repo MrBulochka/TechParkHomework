@@ -13,7 +13,6 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
-        int columns = 0;
         // пытаюсь передать значение количества столбцов списка
 //        Bundle bundle = new Bundle();
 //        bundle.putInt("table_columns", columns);
