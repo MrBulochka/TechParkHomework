@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -14,6 +15,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class TableFragment extends Fragment {
+    int columns;
 
     @Nullable
     @Override
@@ -25,10 +27,14 @@ public class TableFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.table, container, false);
         RecyclerView recyclerView = rootView.findViewById(R.id.table);
         recyclerView.setItemViewCacheSize(50);
-        recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 3));
-        recyclerView.setAdapter(new NumsAdapter());
 
-        
+        int orientation = this.getResources().getConfiguration().orientation;
+        if (orientation == 1)
+            columns = 3;
+        else
+            columns = 4;
+        recyclerView.setLayoutManager(new GridLayoutManager(getContext(), columns));
+        recyclerView.setAdapter(new NumsAdapter());
 
         return rootView;
     }

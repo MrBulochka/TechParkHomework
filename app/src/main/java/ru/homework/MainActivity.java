@@ -11,21 +11,9 @@ import android.os.Bundle;
 
 public class MainActivity extends AppCompatActivity {
 
-    int columns = 3;
-
-    @Override
-    public void onConfigurationChanged(Configuration newConfig) {
-        super.onConfigurationChanged(newConfig);
-
-//         Checks the orientation of the screen
-        if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE)
-            columns = 3;
-        else if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT)
-            columns = 4;
-    }
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
+        int columns = 0;
         // пытаюсь передать значение количества столбцов списка
 //        Bundle bundle = new Bundle();
 //        bundle.putInt("table_columns", columns);
