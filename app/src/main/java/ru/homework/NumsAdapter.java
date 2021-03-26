@@ -15,13 +15,13 @@ class NumsAdapter extends RecyclerView.Adapter<NumsViewHolder> {
     List<TableModel> data = DataSource.getInstance().getRemoteData();
 
     @NonNull
-    @Override
+    @Override  // Создание элементов ViewHolder для RecycleView
     public NumsViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.table_item, parent, false);
         return new NumsViewHolder(view);
     }
 
-    @Override
+    @Override  // Наполнение/перезаполнение элемента ViewHolder данными
     public void onBindViewHolder(@NonNull NumsViewHolder holder, int position) {
         TableModel model = data.get(position);
         holder.bind(model);
@@ -29,14 +29,11 @@ class NumsAdapter extends RecyclerView.Adapter<NumsViewHolder> {
 //        holder.addButton.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
-
-
     }
-
-
 
     @Override
     public int getItemCount() {
+
         return data.size();
     }
 

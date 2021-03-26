@@ -24,10 +24,8 @@ public class DataSource {
         for (int i = 0; i < Constants.DEFOULT_NUMS; i++) {
             number = i + 1;
             String title = Integer.toString(number);
-            if (number % 2 == 0)
-                color = mColors[0];
-            else
-                color = mColors[1];
+            color = getColor(number);
+
         mData.add(new TableModel(title, color));
         }
     }
@@ -42,5 +40,12 @@ public class DataSource {
             sInstance = new DataSource();
         }
         return sInstance;
+    }
+
+    public int getColor(int number) {
+        if (number % 2 == 0)
+            return mColors[0];
+        else
+            return mColors[1];
     }
 }

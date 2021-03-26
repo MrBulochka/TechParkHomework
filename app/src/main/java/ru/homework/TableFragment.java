@@ -20,23 +20,35 @@ public class TableFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-
 //        Bundle bundle = this.getArguments();
 //        int columns = bundle.getInt("table_columns", 0);
-
-        View rootView = inflater.inflate(R.layout.table, container, false);
-        RecyclerView recyclerView = rootView.findViewById(R.id.table);
-        recyclerView.setItemViewCacheSize(50);
 
         int orientation = this.getResources().getConfiguration().orientation;
         if (orientation == 1)
             columns = 3;
         else
             columns = 4;
+
+        View rootView = inflater.inflate(R.layout.table, container, false);
+        RecyclerView recyclerView = rootView.findViewById(R.id.table);
+        recyclerView.setItemViewCacheSize(50);
+
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(), columns));
         recyclerView.setAdapter(new NumsAdapter());
 
+        Button addButton = rootView.findViewById(R.id.creating_button);
+        addButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                addNumber();
+
+            }
+        });
+
         return rootView;
+    }
+    private void addNumber() {
+
     }
 }
 
