@@ -8,6 +8,7 @@ import java.util.List;
 public class DataSource {
     private final List<TableModel> mData;
     private static DataSource sInstance;
+    int defoultNums = 100;
     
     private static int[] mColors = new int[]{
             Color.RED,
@@ -19,7 +20,7 @@ public class DataSource {
         int color;
         int number;
 
-        for (int i = 0; i < Constants.DEFOULT_NUMS; i++) {
+        for (int i = 0; i < defoultNums; i++) {
             number = i + 1;
             String title = Integer.toString(number);
             color = getColor(number);
@@ -31,11 +32,6 @@ public class DataSource {
     public List<TableModel> getRemoteData() {
 
         return mData;
-    }
-
-    public static void addNumber() {
-
-
     }
 
     public synchronized static DataSource getInstance() {

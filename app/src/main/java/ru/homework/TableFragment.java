@@ -41,7 +41,6 @@ public class TableFragment extends Fragment {
         Button addButton = rootView.findViewById(R.id.creating_button);
         addButton.setOnClickListener(view -> {
 //            DataSource.addNumber();
-
             String title = Integer.toString(adapter.data.size() + 1);
             int color = DataSource.getColor(adapter.data.size() + 1);
             adapter.data.add(new TableModel(title, color));
