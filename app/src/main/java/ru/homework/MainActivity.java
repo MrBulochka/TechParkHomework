@@ -2,11 +2,7 @@ package ru.homework;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Intent;
-import android.content.res.Configuration;
 import android.os.Bundle;
 
 public class MainActivity extends AppCompatActivity {
@@ -19,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
 //        tableFragment.setArguments(bundle);
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.table);
+        setContentView(R.layout.table_container);
         TableFragment tableFragment = new TableFragment();
         if (getSupportFragmentManager().findFragmentById(R.id.container) == null) {
             getSupportFragmentManager()
