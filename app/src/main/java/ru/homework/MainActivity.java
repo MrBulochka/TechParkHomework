@@ -19,12 +19,12 @@ public class MainActivity extends AppCompatActivity {
 //        tableFragment.setArguments(bundle);
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.table_fragment);
+        setContentView(R.layout.table);
         TableFragment tableFragment = new TableFragment();
-        if (getSupportFragmentManager().findFragmentById(R.id.table_container) == null) {
+        if (getSupportFragmentManager().findFragmentById(R.id.container) == null) {
             getSupportFragmentManager()
                     .beginTransaction()
-                    .add(R.id.table_container, tableFragment)
+                    .add(R.id.container, tableFragment)
                     .commit();
         }
     }
