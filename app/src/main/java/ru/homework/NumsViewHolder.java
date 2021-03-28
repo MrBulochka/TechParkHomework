@@ -27,13 +27,14 @@ class NumsViewHolder extends RecyclerView.ViewHolder {
         title.setTextColor(model.mColor);
 
         title.setOnClickListener(view -> {
-            AppCompatActivity activity = (AppCompatActivity) view.getContext();
-            activity.setContentView(R.layout.large_num_conteiner);
-            activity.getSupportFragmentManager()
-                    .beginTransaction()
-                    .add(R.id.large_num_container, LargeNumFragment.newInstance(model.mTitle, model.mColor))
-                    .addToBackStack(null)
-                    .commit();
+                AppCompatActivity activity = (AppCompatActivity) view.getContext();
+                if (activity.getSupportFragmentManager().findFragmentById(R.id.table_container) == null) {
+                    activity.getSupportFragmentManager()
+                            .beginTransaction()
+                            .add(R.id.table_container, LargeNumFragment.newInstance(model.mTitle, model.mColor))
+                            .addToBackStack(null)
+                            .commit();
+                }
             }
         );
     }
