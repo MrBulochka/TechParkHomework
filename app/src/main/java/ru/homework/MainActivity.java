@@ -13,7 +13,6 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
-        // пытаюсь передать значение количества столбцов списка
 //        Bundle bundle = new Bundle();
 //        bundle.putInt("table_columns", columns);
 //        TableFragment tableFragment = new TableFragment();
@@ -21,10 +20,11 @@ public class MainActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.table_fragment);
+        TableFragment tableFragment = new TableFragment();
         if (getSupportFragmentManager().findFragmentById(R.id.table_container) == null) {
             getSupportFragmentManager()
                     .beginTransaction()
-                    .add(R.id.table_container, new TableFragment())
+                    .add(R.id.table_container, tableFragment)
                     .commit();
         }
     }

@@ -8,10 +8,8 @@ import java.util.List;
 public class DataSource {
     private final List<TableModel> mData;
     private static DataSource sInstance;
-
-
-
-    private int[] mColors = new int[]{
+    
+    private static int[] mColors = new int[]{
             Color.RED,
             Color.BLUE
     };
@@ -35,6 +33,11 @@ public class DataSource {
         return mData;
     }
 
+    public static void addNumber() {
+
+
+    }
+
     public synchronized static DataSource getInstance() {
         if (sInstance == null) {
             sInstance = new DataSource();
@@ -42,7 +45,7 @@ public class DataSource {
         return sInstance;
     }
 
-    public int getColor(int number) {
+    public static int getColor(int number) {
         if (number % 2 == 0)
             return mColors[0];
         else

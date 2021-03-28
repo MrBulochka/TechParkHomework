@@ -20,7 +20,7 @@ public class LargeNumFragment extends Fragment {
         View view = inflater.inflate(R.layout.large_num_fragment, container, false);
         TextView textView = view.findViewById(R.id.large_number);
         String text = getArguments().getString(EXTRA_NUMBER);
-        int color = getArguments().getInt("color");
+        int color = getArguments().getInt(EXTRA_COLOR);
         textView.setTextColor(color);
 
         textView.setText(text);
