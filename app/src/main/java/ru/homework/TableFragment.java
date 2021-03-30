@@ -24,6 +24,14 @@ public class TableFragment extends Fragment {
     NumsAdapter adapter = new NumsAdapter();
     int columns;
 
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        if (savedInstanceState != null) {
+            restoreState(savedInstanceState);
+        }
+        super.onCreate(savedInstanceState);
+    }
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -39,15 +47,13 @@ public class TableFragment extends Fragment {
         recyclerView.setItemViewCacheSize(50);
 
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(), columns));
-//        if (savedInstanceState != null)
+        restoreState(savedInstanceState);
         recyclerView.setAdapter(adapter);
 
         Button addButton = rootView.findViewById(R.id.creating_button);
         addButton.setOnClickListener(view -> {
-//            DataSource.addNumber();
-            String title = Integer.toString(adapter.data.size() + 1);
-            int color = DataSource.getColor(adapter.data.size() + 1);
-            adapter.data.add(new TableModel(title, color));
+            int nextNumber = adapter.data.size() + 1;
+            adapter.data.add(nextNumber);
             adapter.notifyItemInserted(adapter.data.size() - 1);
         });
 
@@ -57,7 +63,12 @@ public class TableFragment extends Fragment {
     @Override
     public void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putInt(STATE, adapter.data.size());
+        outState.putIntegerArrayList(STATE, adapter.data);
+    }
+
+    private void restoreState(Bundle savedInstanceState) {
+        if (savedInstanceState != null)
+            adapter.data = savedInstanceState.getIntegerArrayList(STATE);
     }
 }
 

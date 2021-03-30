@@ -13,6 +13,8 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
+
 class NumsViewHolder extends RecyclerView.ViewHolder {
 
     private final TextView title;
@@ -22,16 +24,18 @@ class NumsViewHolder extends RecyclerView.ViewHolder {
         title = itemView.findViewById(R.id.number);
     }
 
-    public void bind(TableModel model) {
-        title.setText(model.mTitle);
-        title.setTextColor(model.mColor);
+    public void bind(int number) {
+        String mText = Integer.toString(number);
+        int mColor = DataSource.getColor(number);
+        title.setText(mText);
+        title.setTextColor(mColor);
 
         title.setOnClickListener(view -> {
                 AppCompatActivity activity = (AppCompatActivity) view.getContext();
                 if (activity.getSupportFragmentManager().findFragmentById(R.id.table_container) == null) {
                     activity.getSupportFragmentManager()
                             .beginTransaction()
-                            .add(R.id.table_container, LargeNumFragment.newInstance(model.mTitle, model.mColor))
+                            .add(R.id.table_container, LargeNumFragment.newInstance(mText, mColor))
                             .addToBackStack(null)
                             .commit();
                 }

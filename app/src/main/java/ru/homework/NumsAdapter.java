@@ -8,6 +8,7 @@ import android.widget.Adapter;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import androidx.annotation.NonNull;
@@ -16,7 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 class NumsAdapter extends RecyclerView.Adapter<NumsViewHolder> {
 
-    List<TableModel> data = DataSource.getInstance().getRemoteData();
+    ArrayList<Integer> data = DataSource.getInstance().getRemoteData();
 
     @NonNull
     @Override  // Создание элементов ViewHolder для RecycleView
@@ -27,7 +28,7 @@ class NumsAdapter extends RecyclerView.Adapter<NumsViewHolder> {
 
     @Override  // Наполнение/перезаполнение элемента ViewHolder данными
     public void onBindViewHolder(@NonNull NumsViewHolder holder, int position) {
-        TableModel model = data.get(position);
+        int model = data.get(position);
         holder.bind(model);
     }
 

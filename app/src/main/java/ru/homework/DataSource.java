@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DataSource {
-    private final List<TableModel> mData;
+    private final ArrayList<Integer> mData;
     private static DataSource sInstance;
     public static int defoultNums = 100;
     
@@ -17,19 +17,16 @@ public class DataSource {
 
     public DataSource() {
         mData = new ArrayList<>();
-        int color;
         int number;
 
         for (int i = 0; i < defoultNums; i++) {
             number = i + 1;
-            String title = Integer.toString(number);
-            color = getColor(number);
 
-        mData.add(new TableModel(title, color));
+        mData.add(number);
         }
     }
 
-    public List<TableModel> getRemoteData() {
+    public ArrayList<Integer> getRemoteData() {
 
         return mData;
     }
