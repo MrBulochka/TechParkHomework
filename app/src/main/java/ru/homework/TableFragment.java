@@ -20,6 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TableFragment extends Fragment {
+    public static final String STATE = "state";
     NumsAdapter adapter = new NumsAdapter();
     int columns;
 
@@ -38,6 +39,7 @@ public class TableFragment extends Fragment {
         recyclerView.setItemViewCacheSize(50);
 
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(), columns));
+//        if (savedInstanceState != null)
         recyclerView.setAdapter(adapter);
 
         Button addButton = rootView.findViewById(R.id.creating_button);
@@ -51,10 +53,11 @@ public class TableFragment extends Fragment {
 
         return rootView;
     }
+
     @Override
     public void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putInt("numbers", adapter.data.size());
+        outState.putInt(STATE, adapter.data.size());
     }
 }
 

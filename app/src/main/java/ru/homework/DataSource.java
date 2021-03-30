@@ -8,7 +8,7 @@ import java.util.List;
 public class DataSource {
     private final List<TableModel> mData;
     private static DataSource sInstance;
-    int defoultNums = 100;
+    public static int defoultNums = 100;
     
     private static int[] mColors = new int[]{
             Color.RED,

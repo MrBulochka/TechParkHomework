@@ -9,10 +9,6 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
-//        Bundle bundle = new Bundle();
-//        bundle.putInt("table_columns", columns);
-//        TableFragment tableFragment = new TableFragment();
-//        tableFragment.setArguments(bundle);
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.table_container);
