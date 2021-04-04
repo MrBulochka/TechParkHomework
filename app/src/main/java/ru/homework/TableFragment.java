@@ -67,8 +67,11 @@ public class TableFragment extends Fragment {
     }
 
     private void restoreState(Bundle savedInstanceState) {
-        if (savedInstanceState != null)
-            adapter.data = savedInstanceState.getIntegerArrayList(STATE);
+        if (savedInstanceState != null) {
+            ArrayList<Integer> savedState = savedInstanceState.getIntegerArrayList(STATE);
+            adapter.data = savedState;
+            DataSource.getInstance().setData(savedState);
+        }
     }
 }
 

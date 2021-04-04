@@ -35,7 +35,7 @@ class NumsViewHolder extends RecyclerView.ViewHolder {
                 if (activity.getSupportFragmentManager().findFragmentById(R.id.table_container) == null) {
                     activity.getSupportFragmentManager()
                             .beginTransaction()
-                            .add(R.id.table_container, LargeNumFragment.newInstance(mText, mColor))
+                            .replace(R.id.container, LargeNumFragment.newInstance(mText, mColor))
                             .addToBackStack(null)
                             .commit();
                 }

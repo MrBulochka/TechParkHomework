@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DataSource {
-    private final ArrayList<Integer> mData;
+    private ArrayList<Integer> mData;
     private static DataSource sInstance;
     public static int defoultNums = 100;
     
@@ -43,5 +43,9 @@ public class DataSource {
             return mColors[0];
         else
             return mColors[1];
+    }
+
+    public void setData(ArrayList<Integer> list) {
+        mData = list;
     }
 }
